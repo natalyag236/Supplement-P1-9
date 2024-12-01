@@ -18,3 +18,8 @@ def integrate_linear(a, b, x1 ,x2):
 def test_integrate_linear_():
     result = integrate_linear(4, 2, 1, 5)
     assert abs(result - 56.0) < 1e-5 
+
+def test_systemof_equations():
+    result = systemof_equations(3, 4, 18, 5, -2, 4)
+    assert abs(result['X'] - 2) < 1e-5
+    assert abs(result['Y'] - 3) < 1e-5
