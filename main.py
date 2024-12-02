@@ -19,6 +19,16 @@ def test_integrate_linear_():
     result = integrate_linear(4, 2, 1, 5)
     assert abs(result - 56.0) < 1e-5 
 
+def systemof_equations(a1, b1, c1, a2, b2, c2):
+    determinant = a1 * b2 - a2 * b1
+    if determinant == 0:
+        raise ValueError("The system has no unique soloution")
+    x = (c1 * b2 - c2 * b1) / determinant
+    y = (a1 * c2 - a2 * c1) / determinant
+
+    return {'X': x, 'Y':y}
+
+
 def test_systemof_equations():
     result = systemof_equations(3, 4, 18, 5, -2, 4)
     assert abs(result['X'] - 2) < 1e-5
