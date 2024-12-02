@@ -1,3 +1,5 @@
+import numpy as np
+
 def integrate_linear(a, b, x1 ,x2): 
     """calculates the definite integral of a linear function ax + b over the range
     [x1, x2]
@@ -49,3 +51,18 @@ def test_systemof_equations():
     result = systemof_equations(3, 4, 18, 5, -2, 4)
     assert abs(result['X'] - 2) < 1e-5
     assert abs(result['Y'] - 3) < 1e-5
+
+def test_generate_samples():
+    num_samples = 1000
+    mean = 0
+    std_dev = 1
+
+    samples = generate_samples (num_samples, mean, std_dev)
+
+    generated_mean = np.mean(samples)
+    generated_std_dev = np.std(samples)
+
+    assert abs(generated_mean - mean) < 0.1
+    assert abs(generated_std_dev - std_dev) < 0.1
+
+
