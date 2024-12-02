@@ -52,6 +52,9 @@ def test_systemof_equations():
     assert abs(result['X'] - 2) < 1e-5
     assert abs(result['Y'] - 3) < 1e-5
 
+def generate_samples(num_samples, mean, std_dev):
+    return np.random.normal(mean, std_dev, num_samples)
+
 def test_generate_samples():
     num_samples = 1000
     mean = 0
