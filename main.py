@@ -20,6 +20,22 @@ def test_integrate_linear_():
     assert abs(result - 56.0) < 1e-5 
 
 def systemof_equations(a1, b1, c1, a2, b2, c2):
+    """ solves a system of two linear equations with two unknowns using Cramer Rule
+
+    Args:
+        a1 (float): coefficient of x in the first equation (a1 * x + b1 * y = c1)
+        b1 (float): coefficient of y in the first equation (a1 * x + b1 * y = c1)
+        c1 (float): constant term in the first equation (a1 * x + b1 * y = c1)
+        a2 (float): coeffincinent of x in the seconf equation (a2 * x + b2 * y = c2)
+        b2 (float): coeffincinent of y in the seconf equation (a2 * x + b2 * y = c2)
+        c2 (flaot): constant term in the second equation (a2 * x + b2 * y =c2)
+
+    Raises:
+        ValueError: If the determinant of the system is zero, indicating no unique solution
+
+    Returns:
+        dict: a dictionary contatining the solution with keys 'X' for the value of x and 'Y' for the value of y
+    """
     determinant = a1 * b2 - a2 * b1
     if determinant == 0:
         raise ValueError("The system has no unique soloution")
