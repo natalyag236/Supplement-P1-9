@@ -53,6 +53,16 @@ def test_systemof_equations():
     assert abs(result['Y'] - 3) < 1e-5
 
 def generate_samples(num_samples, mean, std_dev):
+    """generates a specified number of samples from a normal distribution
+
+    Args:
+        num_samples (int): the number of  samples to generate
+        mean (float): the mean of rhe normal distribution
+        std_dev (float): the standard deviation of the normal distribtion
+
+    Returns:
+        numpy.ndarray : an array of samples generated from the normal distribution
+    """
     return np.random.normal(mean, std_dev, num_samples)
 
 def test_generate_samples():
